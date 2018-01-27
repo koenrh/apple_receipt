@@ -29,9 +29,33 @@ require 'apple_receipt'
 receipt_raw = File.read('./receipt.txt')
 receipt = AppleReceipt::Receipt.new(receipt_raw)
 receipt.valid?
+# => true
 
 # read purchase info
-receipt.data
+receipt.purchase_info
+# => {"original-purchase-date-pst"=>"2017-12-23 09:03:53 America/Los_Angeles",
+#  "quantity"=>"1",
+#  "unique-vendor-identifier"=>"D895D8DB-AEDF-4530-B7E5-E0C9A9A394B6",
+#  "original-purchase-date-ms"=>"1514048633000",
+#  "expires-date-formatted"=>"2018-01-23 17:03:44 Etc/GMT",
+#  "is-in-intro-offer-period"=>"false",
+#  "purchase-date-ms"=>"1514048624000",
+#  "expires-date-formatted-pst"=>"2018-01-23 09:03:44 America/Los_Angeles",
+#  "is-trial-period"=>"false",
+#  "item-id"=>"1190360447",
+#  "unique-identifier"=>"fed543dc24065fa2ab23ef08b0b44c0a0c9ed375",
+#  "original-transaction-id"=>"160000408504141",
+#  "expires-date"=>"1516727024000",
+#  "app-item-id"=>"947936149",
+#  "transaction-id"=>"160000408504141",
+#  "bvrs"=>"7000",
+#  "web-order-line-item-id"=>"160000091314729",
+#  "version-external-identifier"=>"825366855",
+#  "bid"=>"com.foo.bar",
+#  "product-id"=>"com.foo.bar.monthly",
+#  "purchase-date"=>"2017-12-23 17:03:44 Etc/GMT",
+#  "purchase-date-pst"=>"2017-12-23 09:03:44 America/Los_Angeles",
+#  "original-purchase-date"=>"2017-12-23 17:03:53 Etc/GMT"}
 ```
 
 ## Contributing

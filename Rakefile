@@ -13,4 +13,3 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task default: %i[rubocop test]
-# task default: :test

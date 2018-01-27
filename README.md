@@ -68,10 +68,10 @@ A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wiki
 
 The `signature` entry contains base64-encoded binary data, which has the following layout:
 
-- **1 byte** - receipt version (e.g. version 3)
-- **256 bytes** - signature
-- **4 bytes** - length (number of bytes) of the certificate
-- **N bytes** - DER-encoded certificate
+- **1 byte** - Receipt version (e.g. version 3).
+- **256 bytes** - Signature.
+- **4 bytes** - Length (in number of bytes) of the certificate.
+- **N bytes** - DER-encoded certificate.
 
 ### Purchase info
 

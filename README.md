@@ -69,9 +69,24 @@ A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wiki
 The `signature` entry contains base64-encoded binary data, which has the following layout:
 
 - **1 byte** - Receipt version (e.g. version 3).
-- **256 bytes** - Signature.
+- **128 bytes** (version 2) or **256 bytes** (version 3) - Signature.
 - **4 bytes** - Length (in number of bytes) of the certificate.
 - **N bytes** - DER-encoded certificate.
+
+The version 2 and 3 receipt certificates are signed, respectively, by:
+
+- **Apple iTunes Store Certification Authority** (version 2)
+	- Serial: 26 (`0x1a`)
+	- Subject: `C=US, O=Apple Inc., OU=Apple Certification Authority, CN=Apple iTunes Store Certification Authority`
+- **Apple Worldwide Developer Relations Certification Authority** (version 3)
+	- Serial: 134752589830791184 (`0x1debcc4396da010`)
+	- Subject: `C=US, O=Apple Inc., OU=Apple Worldwide Developer Relations, CN=Apple Worldwide Developer Relations Certification Authority`
+
+Both certificate chain up to:
+
+- **Apple Root CA**
+	- Serial: 2 (`0x2`)
+	- Subject: `C=US, O=Apple Inc., OU=Apple Certification Authority, CN=Apple Root CA`
 
 ### Purchase info
 

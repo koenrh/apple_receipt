@@ -14,11 +14,11 @@ gem 'apple_receipt'
 
 And then execute:
 
-    $ bundle
+    bundle
 
 Or install it yourself as:
 
-    $ gem install apple_receipt
+    gem install apple_receipt
 
 ## Usage
 
@@ -60,7 +60,10 @@ receipt.purchase_info
 
 ## Contributing
 
-Bug reports and pull requests are welcome on [GitHub](https://github.com/koenrh/apple_receipt). This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on [GitHub](https://github.com/koenrh/apple_receipt).
+This project is intended to be a safe, welcoming space for collaboration, and
+contributors are expected to adhere to the [Contributor Covenant](https://www.contributor-covenant.org)
+code of conduct.
 
 ## License
 

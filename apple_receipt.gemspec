@@ -5,6 +5,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'apple_receipt/version'
 
+# rubocop:disable Metrics/BlockLength
 Gem::Specification.new do |spec|
   spec.name          = 'apple_receipt'
   spec.version       = AppleReceipt::VERSION
@@ -30,9 +31,13 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
+  spec.add_dependency 'json', '~> 2.0'
+  spec.add_dependency 'openssl', '~> 2.0'
+
   spec.add_development_dependency 'bundler', '~> 1.16'
   spec.add_development_dependency 'minitest', '~> 5.0'
   spec.add_development_dependency 'mocha', '~> 1.3'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rubocop', '~> 0.50'
 end
+# rubocop:enable Metrics/BlockLength

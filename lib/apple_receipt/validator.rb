@@ -19,7 +19,7 @@ module AppleReceipt
       if provided_certificates.any?
         add_certificates(provided_certificates)
       else
-        add_named_certificate('AppleIncRootCertificate')
+        add_named_certificate('AppleRootCA')
         add_named_certificate(INTERMEDIATE_CERT_MAPPING[version])
       end
     end

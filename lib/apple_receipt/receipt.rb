@@ -18,7 +18,7 @@ module AppleReceipt
     end
 
     def purchase_info
-      NextStepParser.parse(data)
+      @purchase_info ||= NextStepParser.parse(data)
     end
 
     def valid?

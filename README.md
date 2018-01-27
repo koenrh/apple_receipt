@@ -1,6 +1,7 @@
 # AppleReceipt
 
 [![Build Status](https://travis-ci.org/koenrh/apple_receipt.svg?branch=master)](https://travis-ci.org/koenrh/apple_receipt)
+[![Dependency Status](https://beta.gemnasium.com/badges/github.com/koenrh/apple_receipt.svg)](https://beta.gemnasium.com/projects/github.com/koenrh/apple_receipt)
 
 This gem allows you to to locally/cryptographically verify Apple receipts.
 

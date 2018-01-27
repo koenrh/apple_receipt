@@ -12,7 +12,7 @@ module AppleReceipt
   module ReceiptParser
     module_function
 
-    VERSION_SIGNATURE_LENGTH_MAPPING = {
+    SIGNATURE_LENGTH_MAPPING = {
       2 => 128,
       3 => 256
     }.freeze
@@ -35,11 +35,11 @@ module AppleReceipt
       sig = StringIO.new(signature_decoded)
       version = sig.read(1).unpack('C').first # 8-bit unsigned (unsigned char)
 
-      unless VERSION_SIGNATURE_LENGTH_MAPPING.keys.include?(version)
+      unless SIGNATURE_LENGTH_MAPPING.keys.include?(version)
         raise ArgumentError, "Unsupported receipt version: #{version}"
       end
 
-      signature = sig.read(VERSION_SIGNATURE_LENGTH_MAPPING[version])
+      signature = sig.read(SIGNATURE_LENGTH_MAPPING[version])
       cert_size = sig.read(4).unpack('L>')[0] # 32-bit unsigned, big-endian
       receipt_cert = OpenSSL::X509::Certificate.new(sig.read(cert_size))
 

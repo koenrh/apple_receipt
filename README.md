@@ -8,8 +8,8 @@ This gem allows you to read and verify Apple receipts. It was originally built
 to locally (server-side) verify the validity of receipts that are embedded in
 [Status Update Notifications](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Chapters/Subscriptions.html#//apple_ref/doc/uid/TP40008267-CH7-SW13).
 These receipts have a different format than [documented](https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2)
-App Store receipts you might be familiar with, which are PKCS #7 containers with
-a payload (receipt data) encoded using ASN.1.
+App Store receipts you might be familiar with, which are [PKCS #7](https://tools.ietf.org/html/rfc2315)
+containers with a payload (receipt data) encoded using [ASN.1](https://www.itu.int/itu-t/recommendations/rec.aspx?rec=X.690).
 
 ## Installation
 

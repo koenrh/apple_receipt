@@ -5,31 +5,28 @@ require 'openssl'
 module AppleReceipt
   # Validator allows one to check the validity of a receipt.
   class Validator
+    INTERMEDIATE_CERT_MAPPING = {
+      3 => 'AppleWorldwideDeveloperRelationsCertificationAuthority',
+      2 => 'AppleITunesStoreCertificationAuthority'
+    }.freeze
+
     def initialize(receipt, certificates: [])
       populate_certificate_store(receipt.version, certificates)
       @receipt = receipt
     end
 
     def populate_certificate_store(version, provided_certificates)
-      certificates = if provided_certificates.any?
-                       provided_certificates
-                     else
-                       default_chain(version)
-                     end
-      add_certificates(certificates)
+      if provided_certificates.any?
+        add_certificates(provided_certificates)
+      else
+        add_named_certificate('AppleIncRootCertificate')
+        add_named_certificate(INTERMEDIATE_CERT_MAPPING[version])
+      end
     end
 
-    def default_chain(version)
-      root_cert_pem = File.read('./certificates/AppleIncRootCertificate.cer')
-      intermediate_cert_pem = case version
-                              when 3
-                                File.read('./certificates/AppleWWDRCA.cer')
-                              when 2
-                                File.read('./certificates/AppleISCA.cer')
-                              end
-
-      [OpenSSL::X509::Certificate.new(root_cert_pem),
-       OpenSSL::X509::Certificate.new(intermediate_cert_pem)]
+    def add_named_certificate(name)
+      cert_file = File.read("./certificates/#{name}.cer")
+      store.add_cert(OpenSSL::X509::Certificate.new(cert_file))
     end
 
     def add_certificates(certificates)

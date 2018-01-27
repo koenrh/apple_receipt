@@ -4,7 +4,12 @@
 [![Build Status](https://travis-ci.org/koenrh/apple_receipt.svg?branch=master)](https://travis-ci.org/koenrh/apple_receipt)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/koenrh/apple_receipt.svg)](https://beta.gemnasium.com/projects/github.com/koenrh/apple_receipt)
 
-This gem allows you to read the data embedded in Apple receipt, and locally verify its integrity, and authenticity. It was originally built to verify the validity of receipts embedded in Apple's '[Status Update Notifications](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Chapters/Subscriptions.html#//apple_ref/doc/uid/TP40008267-CH7-SW13)'.
+This gem allows you to read and verify Apple receipts. It was originally built
+to locally (server-side) verify the validity of receipts that are embedded in
+[Status Update Notifications](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Chapters/Subscriptions.html#//apple_ref/doc/uid/TP40008267-CH7-SW13).
+These receipts have a different format than [documented](https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2)
+App Store receipts you might be familiar with, which are PKCS #7 containers with
+a payload (receipt data) encoded using ASN.1.
 
 ## Installation
 
@@ -92,7 +97,8 @@ Both certificates chain up to:
 
 ### Purchase info
 
-The `purchase-info` entry contains a base64-encoded NeXTSTEP dictionary that contains the actual receipt data (purchase info).
+The `purchase-info` entry contains a base64-encoded NeXTSTEP dictionary that contains
+the actual receipt data (purchase info).
 
 ## Contributing
 

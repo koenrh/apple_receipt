@@ -11,7 +11,10 @@ module AppleReceipt
   class Receipt
     def initialize(raw_receipt)
       receipt_decoded = Base64.decode64(raw_receipt)
-      @version, @signature, @cert, @data = ReceiptParser.parse(receipt_decoded)
+      @version,
+        @signature,
+        @certificate,
+        @data = ReceiptParser.parse(receipt_decoded)
     end
 
     def purchase_info
@@ -22,6 +25,6 @@ module AppleReceipt
       Validator.new(self).valid?
     end
 
-    attr_reader :version, :signature, :cert, :data
+    attr_reader :version, :signature, :certificate, :data
   end
 end

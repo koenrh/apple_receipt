@@ -39,13 +39,13 @@ module AppleReceipt
     end
 
     def valid?
-      store.verify(receipt.cert) &&
+      store.verify(receipt.certificate) &&
         public_key.verify(OpenSSL::Digest::SHA1.new,
                           receipt.signature, signed_data)
     end
 
     def public_key
-      receipt.cert.public_key
+      receipt.certificate.public_key
     end
 
     def signed_data

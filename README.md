@@ -82,7 +82,7 @@ The version 2 and 3 receipt certificates are signed, respectively, by:
 	- Serial: 134752589830791184 (`0x1debcc4396da010`)
 	- Subject: `C=US, O=Apple Inc., OU=Apple Worldwide Developer Relations, CN=Apple Worldwide Developer Relations Certification Authority`
 
-Both certificate chain up to:
+Both certificates chain up to:
 
 - **Apple Root CA**
 	- Serial: 2 (`0x2`)

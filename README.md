@@ -22,7 +22,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+require 'apple_receipt'
+
+# check validity (certificate chain, and signature)
+receipt_raw = File.read('./receipt.txt')
+receipt = AppleReceipt::Receipt.new(receipt_raw)
+receipt.valid?
+
+# read purchase info
+receipt.data
+```
 
 ## Contributing
 

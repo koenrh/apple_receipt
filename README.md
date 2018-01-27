@@ -1,5 +1,6 @@
 # Apple Receipt
 
+[![Gem Version](https://badge.fury.io/rb/apple_receipt.svg)](https://badge.fury.io/rb/apple_receipt)
 [![Build Status](https://travis-ci.org/koenrh/apple_receipt.svg?branch=master)](https://travis-ci.org/koenrh/apple_receipt)
 [![Dependency Status](https://beta.gemnasium.com/badges/github.com/koenrh/apple_receipt.svg)](https://beta.gemnasium.com/projects/github.com/koenrh/apple_receipt)
 
@@ -65,16 +66,16 @@ A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wiki
 
 ### Signature
 
-The `signature` entry contains base64-encoded binary that is formatted as follows:
+The `signature` entry contains base64-encoded binary data, which has the following layout:
 
-- 1 byte - receipt version (e.g. version 3)
-- 256 bytes - signature
-- 4 bytes - length (number of bytes) of the certificate
-- N bytes - DER-encoded certificate
+- **1 byte** - receipt version (e.g. version 3)
+- **256 bytes** - signature
+- **4 bytes** - length (number of bytes) of the certificate
+- **N bytes** - DER-encoded certificate
 
 ### Purchase info
 
-The `purchase-info` entry contains the actual data (NeXTSTEP dictionary). The signature is calculated over this data.
+The `purchase-info` entry contains a base64-encoded NeXTSTEP dictionary that contains the actual receipt data (purchase info).
 
 ## Contributing
 

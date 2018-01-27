@@ -53,7 +53,8 @@ receipt.purchase_info
 
 ## Apple receipts
 
-A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wikipedia.org/wiki/Property_list#NeXTSTEP) dictionary:
+A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wikipedia.org/wiki/Property_list#NeXTSTEP)
+dictionary:
 
 ```
 {
@@ -66,7 +67,8 @@ A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wiki
 
 ### Signature
 
-The `signature` entry contains base64-encoded binary data, which has the following layout:
+The `signature` entry contains base64-encoded binary data, which has the following
+layout:
 
 - **1 byte** - Receipt version (e.g. version 3).
 - **128 bytes** (version 2) or **256 bytes** (version 3) - Signature.

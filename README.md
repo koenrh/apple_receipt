@@ -53,7 +53,8 @@ receipt.purchase_info
 
 ## Apple receipts
 
-A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wikipedia.org/wiki/Property_list#NeXTSTEP) dictionary:
+A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wikipedia.org/wiki/Property_list#NeXTSTEP)
+dictionary:
 
 ```
 {
@@ -66,7 +67,8 @@ A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wiki
 
 ### Signature
 
-The `signature` entry contains base64-encoded binary data, which has the following layout:
+The `signature` entry contains base64-encoded binary data, which has the following
+layout:
 
 - **1 byte** - Receipt version (e.g. version 3).
 - **128 bytes** (version 2) or **256 bytes** (version 3) - Signature.
@@ -76,17 +78,17 @@ The `signature` entry contains base64-encoded binary data, which has the followi
 The version 2 and 3 receipt certificates are signed, respectively, by:
 
 - **Apple iTunes Store Certification Authority** (version 2)
-	- Serial: 26 (`0x1a`)
-	- Subject: `C=US, O=Apple Inc., OU=Apple Certification Authority, CN=Apple iTunes Store Certification Authority`
+  - Serial: 26 (`0x1a`)
+  - Subject: `C=US, O=Apple Inc., OU=Apple Certification Authority, CN=Apple iTunes Store Certification Authority`
 - **Apple Worldwide Developer Relations Certification Authority** (version 3)
-	- Serial: 134752589830791184 (`0x1debcc4396da010`)
-	- Subject: `C=US, O=Apple Inc., OU=Apple Worldwide Developer Relations, CN=Apple Worldwide Developer Relations Certification Authority`
+  - Serial: 134752589830791184 (`0x1debcc4396da010`)
+  - Subject: `C=US, O=Apple Inc., OU=Apple Worldwide Developer Relations, CN=Apple Worldwide Developer Relations Certification Authority`
 
 Both certificates chain up to:
 
 - **Apple Root CA**
-	- Serial: 2 (`0x2`)
-	- Subject: `C=US, O=Apple Inc., OU=Apple Certification Authority, CN=Apple Root CA`
+  - Serial: 2 (`0x2`)
+  - Subject: `C=US, O=Apple Inc., OU=Apple Certification Authority, CN=Apple Root CA`
 
 ### Purchase info
 
@@ -101,4 +103,4 @@ code of conduct.
 
 ## License
 
-The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+The gem is available as open source under the terms of the [ISC License](https://opensource.org/licenses/ISC).

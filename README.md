@@ -50,6 +50,32 @@ receipt.purchase_info
 # }
 ```
 
+## Apple receipts
+
+A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wikipedia.org/wiki/Property_list#NeXTSTEP) dictionary:
+
+```
+{
+  "signature" = "[base64-encoded signature]";
+  "purchase-info" = "[base64-encoded purchase data]";
+  "pod" = "[integer]";
+  "signing-status" = "0";
+}
+```
+
+### Signature
+
+The `signature` entry contains base64-encoded binary that is formatted as follows:
+
+- 1 byte - receipt version (e.g. version 3)
+- 256 bytes - signature
+- 4 bytes - length (number of bytes) of the certificate
+- N bytes - DER-encoded certificate
+
+### Purchase info
+
+The `purchase-info` entry contains the actual data (NeXTSTEP dictionary). The signature is calculated over this data.
+
 ## Contributing
 
 Bug reports and pull requests are welcome on [GitHub](https://github.com/koenrh/apple_receipt).

@@ -11,6 +11,8 @@ These receipts have a different format than [documented](https://developer.apple
 App Store receipts you might be familiar with, which are [PKCS #7](https://tools.ietf.org/html/rfc2315)
 containers with a payload (receipt data) encoded using [ASN.1](https://www.itu.int/itu-t/recommendations/rec.aspx?rec=X.690).
 
+:warning: Note that this only covers the receipt data (signed data). You should not rely on (local) verification for data that is in the notification object, but not in the receipt (e.g. `notification_type`).
+
 ## Installation
 
 Add this line to your application's Gemfile:

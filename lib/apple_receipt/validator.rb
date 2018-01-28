@@ -25,7 +25,8 @@ module AppleReceipt
     end
 
     def add_named_certificate(name)
-      cert_file = File.read("./certificates/#{name}.cer")
+      cert_path = File.expand_path("../../certificates/#{name}.cer", __dir__)
+      cert_file = File.read(cert_path)
       store.add_cert(OpenSSL::X509::Certificate.new(cert_file))
     end
 

@@ -14,5 +14,13 @@ describe AppleReceipt::NextStepParser do
       data = AppleReceipt::NextStepParser.parse(nextstep)
       data.must_equal('foo' => 'abc', 'bar' => 'baz')
     end
+
+    it 'replaces dashes with underscores in keys' do
+      nextstep = "{\n"\
+        "\t\"foo-bar\" = \"baz\";\n}"
+
+      data = AppleReceipt::NextStepParser.parse(nextstep)
+      data.must_equal('foo_bar' => 'baz')
+    end
   end
 end

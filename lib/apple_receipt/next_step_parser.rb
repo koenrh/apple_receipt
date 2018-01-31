@@ -12,7 +12,8 @@ module AppleReceipt
       raw_json = input.gsub(/;\n\t/, ",\n\t")
                       .gsub(/\ =/, ':')
                       .gsub(/;\n/, '')
-      JSON.parse(raw_json)
+      h = JSON.parse(raw_json)
+      h.transform_keys { |k| k.tr('-', '_') }
     end
   end
 end

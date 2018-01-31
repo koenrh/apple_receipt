@@ -20,12 +20,12 @@ module AppleReceipt
     def parse(input)
       receipt_hash = NextStepParser.parse(input)
 
-      unless Set['signature', 'purchase-info'].subset?(receipt_hash.keys.to_set)
+      unless Set['signature', 'purchase_info'].subset?(receipt_hash.keys.to_set)
         raise ArgumentError, 'Missing required fields'
       end
 
       signature_decoded = Base64.decode64(receipt_hash['signature'])
-      data_decoded = Base64.decode64(receipt_hash['purchase-info'])
+      data_decoded = Base64.decode64(receipt_hash['purchase_info'])
 
       version, signature, receipt_cert = read_signature(signature_decoded)
       [version, signature, receipt_cert, data_decoded]

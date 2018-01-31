@@ -7,7 +7,7 @@
 This gem allows you to read and verify Apple receipts. It was originally built
 to locally (server-side) verify the validity of receipts that are embedded in
 [Status Update Notifications](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StoreKitGuide/Chapters/Subscriptions.html#//apple_ref/doc/uid/TP40008267-CH7-SW13).
-These receipts have a different format than [documented](https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2)
+These receipts have a different format than the [documented](https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2)
 App Store receipts you might be familiar with, which are [PKCS #7](https://tools.ietf.org/html/rfc2315)
 containers with a payload (receipt data) encoded using [ASN.1](https://www.itu.int/itu-t/recommendations/rec.aspx?rec=X.690).
 
@@ -60,7 +60,7 @@ receipt.purchase_info
 # }
 ```
 
-## Apple receipts
+## Receipts
 
 A receipt is encoded as base64, and is formatted as a [NeXTSTEP](https://en.wikipedia.org/wiki/Property_list#NeXTSTEP)
 dictionary:
@@ -103,6 +103,17 @@ Both certificates chain up to:
 
 The `purchase-info` entry contains a base64-encoded NeXTSTEP dictionary that contains
 the actual receipt data (purchase info).
+
+## Validation
+
+First, the signing certificate is parsed from the signature binary data. The
+validation of the receipt works as follows.
+
+1. Verify that the signing certificate is valid, i.e. it is not expired, and
+   it chains up to either of the bundled Apple root certificates.
+2. Verify that the signature over the signed data (version number and receipt
+   data) is signed by the private key that correspond to the public key that is
+   in the signing certificate.
 
 ## Contributing
 

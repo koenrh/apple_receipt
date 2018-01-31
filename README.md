@@ -46,17 +46,17 @@ receipt.valid?
 receipt.purchase_info
 # => {
 #   "quantity"=>"1",
-#   "expires-date-formatted"=>"2018-01-23 17:03:44 Etc/GMT",
-#   "is-in-intro-offer-period"=>"false",
-#   "is-trial-period"=>"false",
-#   "item-id"=>"1190360447",
-#   "app-item-id"=>"947936149",
-#   "transaction-id"=>"160000408504141",
-#   "web-order-line-item-id"=>"160000011000001",
+#   "expires_date_formatted"=>"2018-01-23 17:03:44 Etc/GMT",
+#   "is_in_intro_offer_period"=>"false",
+#   "is_trial_period"=>"false",
+#   "item_id"=>"1190360447",
+#   "app_item_id"=>"947936149",
+#   "transaction_id"=>"160000408504141",
+#   "web_order_line_item_id"=>"160000011000001",
 #   "bid"=>"com.foo.bar",
-#   "product-id"=>"com.foo.bar.monthly",
-#   "purchase-date"=>"2017-12-23 17:03:44 Etc/GMT",
-#   "original-purchase-date"=>"2017-12-23 17:03:53 Etc/GMT"
+#   "product_id"=>"com.foo.bar.monthly",
+#   "purchase_date"=>"2017-12-23 17:03:44 Etc/GMT",
+#   "original_purchase_date"=>"2017_12_23 17:03:53 Etc/GMT"
 # }
 ```
 

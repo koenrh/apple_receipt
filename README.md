@@ -2,7 +2,6 @@
 
 [![Gem Version](https://badge.fury.io/rb/apple_receipt.svg)](https://badge.fury.io/rb/apple_receipt)
 [![Build Status](https://travis-ci.org/koenrh/apple_receipt.svg?branch=master)](https://travis-ci.org/koenrh/apple_receipt)
-[![Dependency Status](https://beta.gemnasium.com/badges/github.com/koenrh/apple_receipt.svg)](https://beta.gemnasium.com/projects/github.com/koenrh/apple_receipt)
 
 This gem allows you to read and verify Apple receipts. It was originally built
 to locally (server-side) verify the validity of receipts that are embedded in

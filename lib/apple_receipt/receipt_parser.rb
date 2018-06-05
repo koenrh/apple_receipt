@@ -33,14 +33,14 @@ module AppleReceipt
 
     def read_signature(signature_decoded)
       sig = StringIO.new(signature_decoded)
-      version = sig.read(1).unpack('C').first # 8-bit unsigned (unsigned char)
+      version = sig.read(1).unpack1('C') # 8-bit unsigned (unsigned char)
 
-      unless SIGNATURE_LENGTH_MAPPING.keys.include?(version)
+      unless SIGNATURE_LENGTH_MAPPING.key?(version)
         raise ArgumentError, "Unsupported receipt version: #{version}"
       end
 
       signature = sig.read(SIGNATURE_LENGTH_MAPPING[version])
-      cert_size = sig.read(4).unpack('L>')[0] # 32-bit unsigned, big-endian
+      cert_size = sig.read(4).unpack1('L>') # 32-bit unsigned, big-endian
       receipt_cert = OpenSSL::X509::Certificate.new(sig.read(cert_size))
 
       [version, signature, receipt_cert]

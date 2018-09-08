@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'test_helper'
 
 require 'apple_receipt/receipt_parser'
 
@@ -35,7 +35,7 @@ describe AppleReceipt::ReceiptParser do
     end
 
     it 'parses a valid receipt' do
-      valid_receipt_raw = File.read('./spec/fixtures/valid_receipt.txt')
+      valid_receipt_raw = File.read('./test/fixtures/valid_receipt.txt')
       valid_receipt = Base64.decode64(valid_receipt_raw)
       v, size, cert, data = AppleReceipt::ReceiptParser.parse(valid_receipt)
 

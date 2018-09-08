@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'test_helper'
 
 require 'apple_receipt/next_step_parser'
 

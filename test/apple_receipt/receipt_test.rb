@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require 'test_helper'
 
 require 'apple_receipt/receipt'
 
 describe AppleReceipt::Receipt do
-  let(:receipt_raw) { File.read('./spec/fixtures/valid_receipt.txt') }
+  let(:receipt_raw) { File.read('./test/fixtures/valid_receipt.txt') }
 
   describe '#valid?' do
     it 'indicates whether the receipt is valid' do

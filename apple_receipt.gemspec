@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.summary       = 'Local Apple receipt validation.'
   # spec.description   = %q{TODO: Write a longer description or delete this li
   spec.homepage      = 'https://github.com/koenrh/apple_receipt'
-  spec.license       = 'MIT'
+  spec.license       = 'ISC'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

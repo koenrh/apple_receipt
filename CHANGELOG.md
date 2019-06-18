@@ -1,5 +1,9 @@
 # Apple Receipt changelog
 
+## v0.2.3
+
+- Prepared for publication to GitHub Package Registry
+
 ## v0.2.2
 
 - Updated README to add information about validation [\#13](https://github.com/koenrh/apple_receipt/pull/13)
@@ -12,5 +16,6 @@
 ## v0.2.0
 
 - Added ISC license [\#5](https://github.com/koenrh/apple_receipt/pull/5)
-- Added missing dependencies ([\#3](https://github.com/koenrh/apple_receipt/pull/3) and [\#4](https://github.com/koenrh/apple_receipt/pull/4))
+- Added missing dependencies ([\#3](https://github.com/koenrh/apple_receipt/pull/3)
+  and [\#4](https://github.com/koenrh/apple_receipt/pull/4))
 - Added support for 'version 2' receipts ([\#1](https://github.com/koenrh/apple_receipt/pull/1))

@@ -8,11 +8,11 @@ Gem::Specification.new do |spec|
   spec.name          = 'apple_receipt'
   spec.version       = AppleReceipt::VERSION
   spec.authors       = ['Koen Rouwhorst']
-  spec.email         = ['koenrh@blendle.com']
+  spec.email         = ['info@koenrouwhorst.nl']
 
   spec.summary       = 'Local Apple receipt validation.'
   # spec.description   = %q{TODO: Write a longer description or delete this li
-  spec.homepage      = 'https://www.blendle.com'
+  spec.homepage      = 'https://github.com/koenrh/apple_receipt'
   spec.license       = 'MIT'
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
